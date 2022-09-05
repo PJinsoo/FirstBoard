@@ -30,18 +30,20 @@
 		</tr>
 		<c:forEach var="DTO" items="${list }">
 			<tr>
-				<td>${DTO.boardNo }</td>
+				<td><div align="center">${DTO.boardNo }</div></td>
 				<td><a href="controller.do?command=one&boardNo=${DTO.boardNo }">${DTO.title }</a></td>
-				<td>${DTO.writer }</td>
-				<td>${DTO.viewCount }</td>
+				<td><div align="center">${DTO.writer }</div></td>
+				<td><div align="center">${DTO.viewCount }</div></td>
 				<td>${DTO.postTime }</td>
-				<td><a href="controller.do?command=update&boardNo=${DTO.boardNo }">수정</a></td>
-				<td><a href="controller.do?command=delete&boardNo=${DTO.boardNo }">삭제</a></td>
+				<td><div align="center"><a href="controller.do?command=update&boardNo=${DTO.boardNo }">수정</a></div></td>
+				<td><div align="center"><a href="controller.do?command=delete&boardNo=${DTO.boardNo }">삭제</a></div></td>
 			</tr>
 		</c:forEach>
 		<tr>
 			<td colspan="7">
-				<input type="button" value="새 글 쓰기" onclick="location.href='controller.do?command=insert'">
+				<div align="right">
+					<input type="button" value="새 글 쓰기" onclick="location.href='controller.do?command=insert'">
+				</div>
 			</td>
 		</tr>
 	</table>
