@@ -44,15 +44,29 @@ public class BoardBizImpl implements BoardBiz{
 	//글 수정
 	@Override
 	public boolean update(BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = JDBCTemplate.getConnection();
+		boolean res = dao.update(conn, dto);
+		
+		if(res) {
+			JDBCTemplate.commit(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return res;
 	}
 
 	//글 삭제
 	@Override
 	public boolean delete(int boardNo) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = JDBCTemplate.getConnection();
+		boolean res = dao.delete(conn, boardNo);
+		
+		if(res) {
+			JDBCTemplate.commit(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return res;
 	}
 
 }

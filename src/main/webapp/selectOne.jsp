@@ -29,8 +29,8 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="button" value="수정" onclick="">
-				<input type="button" value="삭제" onclick="">
+				<input type="button" value="수정" onclick="location.href='controller.do?command=update&boardNo=${dto.boardNo }'">
+				<input type="button" value="삭제" onclick="location.href='controller.do?command=delete&boardNo=${dto.boardNo }'">
 				<input type="button" value="글 목록" onclick="location.href='controller.do?command=main'">
 			</td>
 		</tr>

@@ -7,6 +7,8 @@ public interface BoardDAO {
 	String selectListSQL = "Select * From board";
 	String selectOneSQL = "Select * From board Where boardNo = ?";
 	String insertSQL = "Insert into board(writer, title, content) Value(?, ?, ?)";
+	String updateSQL = "Update board Set title=?, content=? Where boardNo=?";
+	String deleteSQL = "Delete From board Where boardNo=?";
 	
 	//게시글 목록 출력
 	public List<BoardDTO> selectList(Connection conn);

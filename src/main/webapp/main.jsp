@@ -35,8 +35,8 @@
 				<td>${DTO.writer }</td>
 				<td>${DTO.viewCount }</td>
 				<td>${DTO.postTime }</td>
-				<td><a href="">수정</a></td>
-				<td><a href="">삭제</a></td>
+				<td><a href="controller.do?command=update&boardNo=${DTO.boardNo }">수정</a></td>
+				<td><a href="controller.do?command=delete&boardNo=${DTO.boardNo }">삭제</a></td>
 			</tr>
 		</c:forEach>
 		<tr>

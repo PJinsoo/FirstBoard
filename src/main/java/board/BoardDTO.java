@@ -25,6 +25,7 @@ public class BoardDTO {
 		this.postTime = postTime;
 	}
 	
+	//insert용 생성자
 	public BoardDTO(String writer, String title, String content) {
 		super();
 		this.writer = writer;
@@ -32,6 +33,14 @@ public class BoardDTO {
 		this.content = content;
 	}
 
+	//update용 생성자
+	public BoardDTO(int boardNo, String title, String content) {
+		super();
+		this.boardNo = boardNo;
+		this.title = title;
+		this.content = content;
+	}
+	
 	public int getBoardNo() {
 		return boardNo;
 	}

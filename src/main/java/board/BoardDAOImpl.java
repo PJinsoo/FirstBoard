@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
+
 //DAO : DB에서 직접 접근하는 객체
 public class BoardDAOImpl implements BoardDAO{
 
@@ -87,15 +89,43 @@ public class BoardDAOImpl implements BoardDAO{
 	//글 수정
 	@Override
 	public boolean update(Connection conn, BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = conn.prepareStatement(updateSQL);
+			pstm.setString(1, dto.getTitle());
+			pstm.setString(2, dto.getContent());
+			pstm.setInt(3, dto.getBoardNo());
+			
+			res = pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstm);
+		}
+		return (res>0) ? true : false;
 	}
 
 	//글 삭제
 	@Override
 	public boolean delete(Connection conn, int boardNo) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = conn.prepareStatement(deleteSQL);
+			pstm.setInt(1, boardNo);
+			
+			res = pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstm);
+		}
+		return (res>0) ? true : false;
 	}
 
 }
