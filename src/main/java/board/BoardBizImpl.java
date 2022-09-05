@@ -28,6 +28,19 @@ public class BoardBizImpl implements BoardBiz{
 		
 		return dto;
 	}
+	
+	//조회수 카운팅
+	@Override
+	public boolean countingView(BoardDTO dto) {
+		Connection conn = JDBCTemplate.getConnection();
+		boolean res = dao.countingView(conn, dto);
+		if(res) {
+			JDBCTemplate.commit(conn);
+		}
+		JDBCTemplate.close(conn);
+		
+		return res;
+	}
 
 	//새 글 쓰기
 	@Override

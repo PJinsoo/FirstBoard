@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<% System.out.println("게시글 클릭"); %>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>

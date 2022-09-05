@@ -28,7 +28,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="수정하기">
-					<input type="button" value="취소" onclick="loacation.href='controller.do?command=one&boardNo=${dto.boardNo }'">
+					<input type="button" value="취소" onclick="location.href='controller.do?command=one&boardNo=${dto.boardNo }'">
 				</td>
 			</tr>
 		</table>

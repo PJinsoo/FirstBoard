@@ -25,6 +25,12 @@ public class BoardDTO {
 		this.postTime = postTime;
 	}
 	
+	//조회수 카운팅
+	public BoardDTO(int boardNo) {
+		super();
+		this.boardNo = boardNo;
+	}
+	
 	//insert용 생성자
 	public BoardDTO(String writer, String title, String content) {
 		super();

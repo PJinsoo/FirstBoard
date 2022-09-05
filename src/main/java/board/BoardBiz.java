@@ -10,6 +10,9 @@ public interface BoardBiz {
 	//게시글 하나 출력
 	public BoardDTO selectOne(int boardNo);
 	
+	//조회수 카운팅
+	public boolean countingView(BoardDTO dto);
+	
 	//게시글 작성
 	public boolean insert(BoardDTO dto);
 	

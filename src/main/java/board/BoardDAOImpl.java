@@ -59,8 +59,28 @@ public class BoardDAOImpl implements BoardDAO{
 			JDBCTemplate.close(rs);
 			JDBCTemplate.close(pstm);
 		}
-		
+	
 		return res;
+	}
+	
+	//조회수 카운팅
+	@Override
+	public boolean countingView(Connection conn, BoardDTO dto) {
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = conn.prepareStatement(viewCountUpSQL);
+			pstm.setInt(1, dto.getBoardNo());
+			
+			res = pstm.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstm);
+		}
+		return (res>0) ? true : false;
 	}
 
 	//새 글 쓰기

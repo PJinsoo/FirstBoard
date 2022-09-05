@@ -52,9 +52,15 @@ public class BoardServlet extends HttpServlet {
 			
 			//사용자가 클릭한 게시글의 Key값을 저장
 			int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+			System.out.println("게시판 번호" + boardNo + " 클릭");
 			
 			//사용자가 클릭한 게시글의 정보를 biz에게 요청함
 			BoardDTO dto = biz.selectOne(boardNo);
+			
+			//조회수 증가
+			BoardDTO counting = new BoardDTO(boardNo);
+			biz.countingView(counting);
+			System.out.println("게시글 번호" + boardNo + " 조회수 증가");
 			
 			//응답된 게시글의 내용을 view로 전송
 			request.setAttribute("dto", dto);
