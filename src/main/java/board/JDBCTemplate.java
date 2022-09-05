@@ -76,6 +76,16 @@ public class JDBCTemplate {
 		}
 	}
 	
+	public static void commit(Connection conn) {
+		if(isConnection(conn)) {
+			try {
+				conn.commit();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public static void rollback(Connection conn) {
 		if(isConnection(conn)) {
 			try {

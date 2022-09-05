@@ -22,15 +22,23 @@ public class BoardBizImpl implements BoardBiz{
 	//게시글 하나 보기
 	@Override
 	public BoardDTO selectOne(int boardNo) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection conn = JDBCTemplate.getConnection();
+		BoardDTO dto = dao.selectOne(conn, boardNo);
+		JDBCTemplate.close(conn);
+		
+		return dto;
 	}
 
 	//새 글 쓰기
 	@Override
 	public boolean insert(BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return false;
+		Connection conn = JDBCTemplate.getConnection();
+		boolean res = dao.insert(conn, dto);
+		if(res) {
+			JDBCTemplate.commit(conn);
+		}
+		JDBCTemplate.close(conn);
+		return res;
 	}
 
 	//글 수정

@@ -38,15 +38,50 @@ public class BoardDAOImpl implements BoardDAO{
 	//게시글 하나 보기
 	@Override
 	public BoardDTO selectOne(Connection conn, int boardNo) {
-		// TODO Auto-generated method stub
-		return null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		BoardDTO res = null;
+		
+		try {
+			pstm = conn.prepareStatement(selectOneSQL);
+			pstm.setInt(1,boardNo);
+			
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				res = new BoardDTO(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getDate(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(rs);
+			JDBCTemplate.close(pstm);
+		}
+		
+		return res;
 	}
 
 	//새 글 쓰기
 	@Override
 	public boolean insert(Connection conn, BoardDTO dto) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			//value 값이 될 인자들을 삽입 
+			pstm = conn.prepareStatement(insertSQL);
+			pstm.setString(1, dto.getWriter());
+			pstm.setString(2, dto.getTitle());
+			pstm.setString(3, dto.getContent());
+			
+			res = pstm.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JDBCTemplate.close(pstm);
+		}
+		
+		return (res>0) ? true : false;
 	}
 
 	//글 수정

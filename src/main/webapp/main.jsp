@@ -31,7 +31,7 @@
 		<c:forEach var="DTO" items="${list }">
 			<tr>
 				<td>${DTO.boardNo }</td>
-				<td>${DTO.title }</td>
+				<td><a href="controller.do?command=one&boardNo=${DTO.boardNo }">${DTO.title }</a></td>
 				<td>${DTO.writer }</td>
 				<td>${DTO.viewCount }</td>
 				<td>${DTO.postTime }</td>
@@ -41,7 +41,7 @@
 		</c:forEach>
 		<tr>
 			<td colspan="7">
-				<input type="button" value="새 글 쓰기" onclick="">
+				<input type="button" value="새 글 쓰기" onclick="location.href='controller.do?command=insert'">
 			</td>
 		</tr>
 	</table>

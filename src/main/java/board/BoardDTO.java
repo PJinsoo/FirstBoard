@@ -24,6 +24,13 @@ public class BoardDTO {
 		this.viewCount = viewCount;
 		this.postTime = postTime;
 	}
+	
+	public BoardDTO(String writer, String title, String content) {
+		super();
+		this.writer = writer;
+		this.title = title;
+		this.content = content;
+	}
 
 	public int getBoardNo() {
 		return boardNo;
@@ -49,11 +56,11 @@ public class BoardDTO {
 		this.content = content;
 	}
 
-	public String getwriter() {
+	public String getWriter() {
 		return writer;
 	}
 
-	public void setwriter(String writer) {
+	public void setWriter(String writer) {
 		this.writer = writer;
 	}
 

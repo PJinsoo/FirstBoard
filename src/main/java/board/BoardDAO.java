@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.util.List;
 
 public interface BoardDAO {
-	String selectListSQL = "select * from board";
+	String selectListSQL = "Select * From board";
+	String selectOneSQL = "Select * From board Where boardNo = ?";
+	String insertSQL = "Insert into board(writer, title, content) Value(?, ?, ?)";
 	
 	//게시글 목록 출력
 	public List<BoardDTO> selectList(Connection conn);
