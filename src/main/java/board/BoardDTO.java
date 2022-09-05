@@ -2,7 +2,8 @@ package board;
 
 import java.sql.Date;
 
-//데이터를 주고 받기 위한 그릇
+//Data Transfer Object
+//데이터를 주고 받기 위한 객체
 public class BoardDTO {
 	private int boardNo;
 	private String title;

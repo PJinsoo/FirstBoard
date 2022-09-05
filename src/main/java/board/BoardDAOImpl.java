@@ -7,9 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mysql.cj.x.protobuf.MysqlxConnection.Close;
-
-//DAO : DB에서 직접 접근하는 객체
+//Data Access Object
+//DAO는 DB에서 직접 접근하여 CRUD를 수행하는 객체
 public class BoardDAOImpl implements BoardDAO{
 
 	//글목록 전체 보기
